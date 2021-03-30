@@ -126,8 +126,7 @@ func (k *LicenseKey) ToString() string {
 
 // IsLicensed returns true if the package is licensed.
 func (k *LicenseKey) IsLicensed() bool {
-	return true
-	// return k.Tier != LicenseTierUnlicensed
+	return k.Tier != LicenseTierUnlicensed
 }
 
 // MakeUnlicensedKey returns an unlicensed key.
@@ -138,4 +137,18 @@ func MakeUnlicensedKey() *LicenseKey {
 	lk.CreatedAt = time.Now().UTC()
 	lk.CreatedAtInt = lk.CreatedAt.Unix()
 	return &lk
+}
+
+func MakeBusinessKey() *LicenseKey {
+	newLicense := LicenseKey{}
+	newLicense.CreatedAt = time.Now().UTC()
+	newLicense.CreatedAtInt = newLicense.CreatedAt.Unix()
+	newLicense.CustomerId = "Legacy"
+	newLicense.CustomerName = "Forensic"
+	newLicense.Tier = LicenseTierBusiness
+	newLicense.ExpiresAt = time.Now().AddDate(1, 0, 0)
+	newLicense.CreatorName = "zzyy"
+	newLicense.CreatorEmail = "zzyy@forensix.cn"
+	newLicense.UniOffice = true
+	return &newLicense
 }
