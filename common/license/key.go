@@ -143,10 +143,11 @@ func MakeBusinessKey() *LicenseKey {
 	newLicense := LicenseKey{}
 	newLicense.CreatedAt = time.Now().UTC()
 	newLicense.CreatedAtInt = newLicense.CreatedAt.Unix()
-	newLicense.CustomerId = "Legacy"
+	newLicense.CustomerId = "Forensic"
 	newLicense.CustomerName = "Forensic"
 	newLicense.Tier = LicenseTierBusiness
 	newLicense.ExpiresAt = time.Now().AddDate(1, 0, 0)
+	newLicense.ExpiresAtInt = newLicense.ExpiresAt.Unix()
 	newLicense.CreatorName = "zzyy"
 	newLicense.CreatorEmail = "zzyy@forensix.cn"
 	newLicense.UniOffice = true
